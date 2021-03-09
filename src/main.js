@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 
+// 引入图标库
+import './assets/font/iconfont.css'
+
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
 axios.defaults.baseURL = '/api'
