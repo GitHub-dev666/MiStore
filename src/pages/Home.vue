@@ -16,8 +16,6 @@ export default {
   components: {
     Header,
     Footer
-  },
-  mounted () {
   }
 }
 </script>

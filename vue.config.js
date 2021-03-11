@@ -7,7 +7,7 @@ module.exports = {
     /*设置服务器代理*/
     proxy: {
       "/api": {
-        target: "http://localhost:8080",
+        target: "http://mall-pre.springboot.cn",
         pathRewrite: {
             "^/api" : ""
         }
