@@ -58,7 +58,10 @@
               <img :src="item.imgUrl">
               <span class="name" v-text="item.name"></span>
               <span class="script" v-text="item.script"></span>
-              <span class="price" v-text="item.price"></span>
+              <div>
+                <span class="price" v-text="item.price"></span>
+                <span class="iconfont icon-gouwuchekong" @click="car(item.id, item.name)"></span>
+              </div>
             </a>
           </div>
         </div>
@@ -308,6 +311,11 @@ export default {
     setTimeout(() => {
       this.swiperList = this.List
     }, 500)
+  },
+  methods: {
+    car (n, p) {
+      this.bus.$emit('changShow', n, p)
+    }
   }
 }
 </script>
@@ -520,9 +528,22 @@ export default {
             overflow: hidden;
             margin-bottom: 10px;
           }
-          .price {
-            font-size: 14px;
-            color: #f60;
+          div{
+            .price {
+              font-size: 14px;
+              color: #f60;
+            }
+            .iconfont {
+              display: inline-block;
+              margin-left: 20px;
+              font-size: 16px;
+              color: #f60;
+              transition: all 0.3s;
+              &:hover {
+                color: rgb(0, 195, 255);
+                transform: rotate(-8deg) scale(1.3);
+              }
+            }
           }
           &:hover {
             transform: translate(0, -3px);
