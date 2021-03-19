@@ -97,7 +97,6 @@ export default {
         categoryId: '100012'
       }
     }).then((res) => {
-      console.log(res)
       if (res.list.length > 6) {
         this.proList = res.list.slice(0, 6)
         this.remiList = res.list.slice(4)
@@ -105,7 +104,6 @@ export default {
         this.proList = res.list
         this.remiList = res.list
       }
-      console.log(this.remiList)
     }
     )
   }
@@ -235,10 +233,11 @@ export default {
         }
         // 隐藏商品页
         .phone-show {
+          z-index: 99; // 防止swipe遮盖
           transition:all 0.5s;
-          opacity: 0;
-          height: 0;
-          overflow:hidden;
+          opacity: 0;// 隐藏元素
+          height: 0;// 隐藏元素
+          overflow:hidden; //隐藏元素子元素
           position: absolute;
           background-color: #fff;
           top: 112px;

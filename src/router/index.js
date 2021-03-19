@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 // Home及其附属页面引入
 import Home from './../pages/Home.vue'
-import HomeDetail from './../pages/HomeDetail.vue'
+import HomeContent from './../pages/HomeContent.vue'
 
 Vue.use(VueRouter)
 
@@ -11,7 +11,7 @@ const routes = [
   // 重定向
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/home/homeContent'
   },
   // 主页路由
   {
@@ -20,9 +20,9 @@ const routes = [
     component: Home,
     children: [
       {
-        path: 'detail',
-        name: 'detail',
-        component: HomeDetail
+        path: 'homeContent',
+        name: 'homeContent',
+        component: HomeContent
       }
     ]
   }
