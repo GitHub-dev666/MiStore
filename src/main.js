@@ -2,17 +2,21 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from 'axios'
 
 // 引入图标库
 import './assets/font/iconfont.css'
 
-Vue.config.productionTip = false
+// 图片懒加载
+import lazyLoad from 'vue-lazyload'
 
+// 引入axios发送ajax
+import axios from 'axios'
+
+// 配置axios
 Vue.prototype.axios = axios
 axios.defaults.baseURL = '/api'
 axios.defaults.timeout = 6000
-// 请求拦截
+// 发送axios后，响应拦截
 axios.interceptors.response.use((response) => {
   const res = response.data
   if (res.status === 0) {
@@ -24,6 +28,12 @@ axios.interceptors.response.use((response) => {
   }
 })
 
+// 图片懒加载配置
+Vue.use(lazyLoad, {
+  loading: './../loading-svg/loading-spinning-bubbles.svg'
+})
+
+Vue.config.productionTip = false
 new Vue({
   router,
   store,

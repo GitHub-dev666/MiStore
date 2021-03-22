@@ -5,6 +5,9 @@ import VueRouter from 'vue-router'
 import Home from './../pages/Home.vue'
 import HomeContent from './../pages/HomeContent.vue'
 
+// 登录页面引入
+import Login from './../pages/login.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -25,6 +28,12 @@ const routes = [
         component: HomeContent
       }
     ]
+  },
+  // 登录
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   }
 ]
 

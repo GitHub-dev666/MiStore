@@ -51,16 +51,15 @@ export default {
     position: fixed;
     display: flex;
     justify-content: center;
+    align-items: center;
     z-index: 99;
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
     .wraper {
-        background-color: rgb(230, 230, 230);
-        position: relative;
-        margin-top: 200px;
+        background-color: rgb(235, 235, 235);
+        margin-top: -100px;
         width: 450px;
-        height: 300px;
         .header {
             height: 40px;
             font-size: 14px;
@@ -82,11 +81,11 @@ export default {
                 }
             }
         }
+        .content {
+          min-height: 100px;
+        }
         .footer {
             background-color: white;
-            position: absolute;
-            bottom: 0;
-            left: 0;
             height: 50px;
             width: 100%;
             display: flex;

@@ -23,7 +23,7 @@
             <!--商品展开列表-->
             <div class="wraper">
               <div class="detail-content" v-for="item in orderList" :key="item.id">
-                <img :src="item.imgUrl" >
+                <img v-lazy="item.imgUrl" >
                 <span class="text">{{item.name}}</span>
               </div>
             </div>
@@ -55,7 +55,7 @@
           </div>
           <div class="otherShow">
             <a class="wraper" v-for="item in paramShowList" :key="item.id">
-              <img :src="item.imgUrl">
+              <img v-lazy="item.imgUrl">
               <span class="name" v-text="item.name"></span>
               <span class="script" v-text="item.script"></span>
               <div>

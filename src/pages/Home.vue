@@ -33,7 +33,7 @@ export default {
     text-align: center;
     font-size: 21px;
     line-height: 150px;
-    color: rgb(76, 175, 214);
+    color: rgb(19, 19, 19);
   }
 }
 </style>

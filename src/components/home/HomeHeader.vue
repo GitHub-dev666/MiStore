@@ -41,7 +41,7 @@
             <div class="phone-show">
               <ul class="phone-wraper">
                 <li class="phone-li" v-for="item in proList" :key="item.id">
-                  <img :src="item.mainImage">
+                  <img v-lazy="item.mainImage">
                   <div class="text-name">{{item.name}}</div>
                   <div class="text-price">{{item.price}}</div>
                 </li>
@@ -54,7 +54,7 @@
             <div class="phone-show">
               <ul class="phone-wraper">
                 <li class="phone-li" v-for="item in remiList" :key="item.id">
-                  <img :src="item.mainImage">
+                  <img v-lazy="item.mainImage">
                   <div class="text-name">{{item.name}}</div>
                   <div class="text-price">{{item.price}}</div>
                 </li>
