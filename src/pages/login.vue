@@ -11,25 +11,28 @@
             <div class="content">
                 <div class="content-wraper">
                     <div class="login-box">
+                        <!--标题-->
                         <div class="login-header">
-                            <span>账号登入</span>
+                            <span>登入账号</span>
                         </div>
+                        <!--输入框-->
                         <div class="login-content">
                             <div class="input-box">
-                                <input id="name" type="text" placeholder="邮箱/手机号码/小米ID">
+                                <input type="text" placeholder="账号：jack" v-model="username">
                             </div>
                             <div class="input-box">
-                                <input type="text" placeholder="密码">
+                                <input type="password" placeholder="密码：jack" v-model="password">
                             </div>
-                            <button class="commit-buttom">登入</button>
+                            <button class="commit-buttom" @click="login">登入</button>
                         </div>
+                        <!--注册-->
                         <div class="login-footer">
                             <div class="register">
                                 <span class="register-mess">手机短信登入</span>
                                 <div class="register-other">
                                     <span>立即注册</span>
                                     <span class="mindle">|</span>
-                                    <span>忘记密码?</span>
+                                    <span v-text="this.$store.state.user.id || '忘记密码?'"></span>
                                 </div>
                             </div>
                         </div>
@@ -58,6 +61,37 @@
 </template>
 <script>
 export default {
+  data () {
+    return {
+    }
+  },
+  computed: {
+    username: {
+      get () {
+        return this.$store.state.username
+      },
+      set (value) {
+        this.$store.commit('nameChang', value)
+      }
+    },
+    password: {
+      get () {
+        return this.$store.state.password
+      },
+      set (value) {
+        this.$store.commit('passwordChang', value)
+      }
+    }
+  },
+  methods: {
+    login () {
+      this.$store.dispatch('login', this.setCookie)
+    },
+    setCookie () {
+      this.$cookie.set('userId', this.$store.state.user.id, { expirse: 1 })
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -90,6 +124,7 @@ export default {
                     width: 410px;
                     height: 528px;
                     background-color: white;
+                     // 标题
                     .login-header {
                         text-align: center;
                         height: 83px;
@@ -97,10 +132,12 @@ export default {
                         font-size: 24px;
                         color: #f56600;
                     }
+                    // 输入框区域
                     .login-content {
                         display: flex;
                         flex-wrap: wrap;
                         justify-content: center;
+                        // 输入框div包裹
                         .input-box {
                             box-sizing: border-box;
                             padding: 0 20px;
@@ -108,6 +145,7 @@ export default {
                             height: 48px;
                             border: 1px solid #e0e0e0;
                             margin-bottom: 10px;
+                            // input输入框
                             input {
                                 width: 100%;
                                 height: 100%;
@@ -118,15 +156,18 @@ export default {
                                 }
                             }
                         }
+                        // 确认按钮
                         .commit-buttom {
                             width: 346px;
                             height: 48px;
                             color: #fff;
+                            font-size: 16px;
                             background-color: #f56600;
                             border: none;
                             margin-top: 20px;
                         }
                     }
+                    // 底部注册区域
                     .login-footer {
                         .register {
                             margin-top: 10px;

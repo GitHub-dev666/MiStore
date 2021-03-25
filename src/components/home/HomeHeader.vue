@@ -17,7 +17,8 @@
           </div>
           <!--右侧导航栏-->
           <div class="content-right">
-            <a href="javascript:;" @click="login">登录</a>
+            <a href="javascript:;" @click="login" v-if="!username">登录</a>
+            <a href="javascript:;" v-else v-text="username"></a>
             <span class="spe">|</span>
             <a href="javascript:;">消息通知</a>
             <div class="car-wraper">
@@ -74,6 +75,7 @@
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
   data () {
@@ -81,6 +83,9 @@ export default {
       proList: [],
       remiList: []
     }
+  },
+  computed: {
+    ...mapState(['username'])
   },
   methods: {
     login () {

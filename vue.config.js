@@ -9,7 +9,7 @@ module.exports = {
       "/api": {
         target: "http://mall-pre.springboot.cn",
         pathRewrite: {
-            "^/api" : ""
+          "^/api" : ""
         }
       }
     }
