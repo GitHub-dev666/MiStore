@@ -48,19 +48,21 @@
             <span class="iconfont icon-arrow-right-bold"></span>
           </a>
         </div>
-        <!--图片展示区域-->
+        <!--图片参数展示区域-->
         <div class="param-wraper">
+          <!--左部大图-->
           <div class="mianShow">
             <img src="//cdn.cnbj1.fds.api.mi-img.com/mi-mall/cb1bd61ad71c45a4f67f09b075463944.jpeg?thumb=1&w=293&h=768&f=webp&q=90" alt="">
           </div>
+          <!--右侧小图-->
           <div class="otherShow">
-            <a class="wraper" v-for="item in paramShowList" :key="item.id">
+            <a class="wraper" v-for="item in paramShowList" :key="item.id" @click="showDetail(item.id)">
               <img v-lazy="item.imgUrl">
               <span class="name" v-text="item.name"></span>
               <span class="script" v-text="item.script"></span>
               <div>
                 <span class="price" v-text="item.price"></span>
-                <span class="iconfont icon-gouwuchekong" @click="car(item.id, item.name)"></span>
+                <span class="iconfont icon-gouwuchekong" @click.stop="car(item.id, item.name)"></span>
               </div>
             </a>
           </div>
@@ -315,6 +317,9 @@ export default {
   methods: {
     car (n, p) {
       this.bus.$emit('changShow', n, p)
+    },
+    showDetail (id) {
+      this.$router.push({ name: 'detail', params: { id } })
     }
   }
 }

@@ -8,6 +8,9 @@ import HomeContent from './../pages/HomeContent.vue'
 // 登录页面引入
 import Login from './../pages/login.vue'
 
+// 产品详情页引入
+import Detail from './../pages/Detail.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,6 +37,12 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  // 产品详情页
+  {
+    path: '/detail/:id',
+    name: 'detail',
+    component: Detail
   }
 ]
 

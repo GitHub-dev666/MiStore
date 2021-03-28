@@ -31,7 +31,7 @@
       <!--头部-->
       <div class="navHeader">
         <!--小米LOGO-->
-        <div class="header-logo">
+        <div class="header-logo" @click="toIndex">
           <a href="javascript:;"></a>
         </div>
         <!--菜单-->
@@ -93,6 +93,9 @@ export default {
     },
     car () {
       this.$router.push('/car')
+    },
+    toIndex () {
+      this.$router.push('/')
     }
   },
   mounted () {
