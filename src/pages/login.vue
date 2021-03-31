@@ -3,7 +3,7 @@
         <div class="login-wraper">
             <!--顶部栏-->
             <div class="header">
-                <a href="javascript:;">
+                <a href="/">
                     <div class="logo"></div>
                 </a>
             </div>

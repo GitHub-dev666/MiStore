@@ -21,9 +21,9 @@
             <a href="javascript:;" v-else v-text="username"></a>
             <span class="spe">|</span>
             <a href="javascript:;">消息通知</a>
-            <div class="car-wraper">
+            <div class="car-wraper"  @click="car">
               <span class="iconfont icon-gouwuchekong"></span>
-              <a href="javascript:;" class="car" @click="car">购物车(0)</a>
+              <a href="javascript:;" class="car">购物车(0)</a>
             </div>
           </div>
         </div>

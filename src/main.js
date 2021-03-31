@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// 引入ElementUI
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
 // 引入图标库
 import './assets/font/iconfont.css'
 
@@ -19,6 +23,7 @@ import axios from 'axios'
 Vue.prototype.axios = axios
 axios.defaults.baseURL = '/api'
 axios.defaults.timeout = 6000
+
 // 发送axios后，响应拦截
 axios.interceptors.response.use((response) => {
   const res = response.data
@@ -28,7 +33,15 @@ axios.interceptors.response.use((response) => {
     alert('用户/密码错误')
     return Promise.reject(res)
   } else if (res.status === 10) {
-    alert('登录信息过期，请重新登录')
+    Vue.prototype.$confirm('登录信息过期，请重新登录', '提示', {
+      confirmButtonText: '登入',
+      cancelButtonText: '取消',
+      type: 'warning'
+    }).then(
+      () => {
+        router.push('/login')
+      }
+    )
     return Promise.reject(res)
   } else {
     console.log(res)
@@ -44,6 +57,9 @@ Vue.use(lazyLoad, {
 
 // 安装cookie插件
 Vue.use(vueCookie)
+
+// 引入ElementUI
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 new Vue({

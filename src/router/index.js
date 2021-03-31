@@ -8,6 +8,9 @@ import HomeContent from './../pages/HomeContent.vue'
 // 登录页面引入
 import Login from './../pages/login.vue'
 
+// 购物车页面引入
+import Car from './../pages/car.vue'
+
 // 产品详情页引入
 import Detail from './../pages/Detail.vue'
 
@@ -43,6 +46,12 @@ const routes = [
     path: '/detail/:id',
     name: 'detail',
     component: Detail
+  },
+  // 购物车页面
+  {
+    path: '/car',
+    name: 'Car',
+    component: Car
   }
 ]
 
