@@ -5,7 +5,11 @@
             <!--头部公共组件-->
             <Header/>
             <!--产品弹性导航头-->
-            <top-bar></top-bar>
+            <top-bar>
+              <template v-slot:button>
+                <button class="buy" @click="shop(id)">立即购买</button>
+              </template>
+            </top-bar>
             <!--产品详细信息区-->
             <div class="content">
               <!--第一张展示图-->
@@ -67,6 +71,7 @@ import TopBar from './../components/detail/topBar'
 export default {
   data () {
     return {
+      id: '',
       showDowm: false, // 下拉
       showUp: false, // 上拉
       videoUrl: '', // 视频地址
@@ -92,10 +97,14 @@ export default {
         this.showUp = false // 变换完成，返回初始样式
         this.videoUrl = this.videoOneUrl // 变换完成，返回初始视频
       }, 500)
+    },
+    shop () {
+      this.$router.push(`/shop/${this.id}`)
     }
   },
   mounted () {
     this.videoUrl = this.videoOneUrl
+    this.id = this.$route.params.id
   }
 }
 </script>

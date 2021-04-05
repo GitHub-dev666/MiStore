@@ -12,7 +12,7 @@
                 <a href="javascript:;">参数页</a>
                 <span class="separator">|</span>
                 <a href="javascript:;">用户评价</a>
-                <button class="buy">立即购买</button>
+                <slot name="button"></slot>
             </div>
           </div>
         </div>

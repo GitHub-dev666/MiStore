@@ -14,6 +14,8 @@ import Car from './../pages/car.vue'
 // 产品详情页引入
 import Detail from './../pages/Detail.vue'
 
+import Shop from './../pages/shop.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -52,6 +54,11 @@ const routes = [
     path: '/car',
     name: 'Car',
     component: Car
+  },
+  {
+    path: '/shop/:id',
+    name: 'shop',
+    component: Shop
   }
 ]
 
