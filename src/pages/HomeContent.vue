@@ -313,6 +313,7 @@ export default {
     setTimeout(() => {
       this.swiperList = this.List
     }, 500)
+    this.getProductList()
   },
   methods: {
     car (n, p) {
@@ -320,6 +321,9 @@ export default {
     },
     showDetail (id) {
       this.$router.push({ name: 'detail', params: { id } })
+    },
+    getProductList () {
+      this.$store.dispatch('getProductList')
     }
   }
 }
